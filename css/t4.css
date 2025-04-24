@@ -1,0 +1,140 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.quiz-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    width: 550px;
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.timer {
+    color: #dc3545; /* Màu đỏ để nổi bật */
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: right; /* Căn phải để giống ảnh */
+    order: 1; /* Đặt lên trên cùng */
+}
+
+.question-header {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 20px;
+    order: 2;
+}
+
+.question-number {
+    color: #343a40;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-right: 8px;
+}
+
+.question-text {
+    color: #343a40;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.options-container {
+    margin-bottom: 20px;
+    order: 3;
+}
+
+.answer-item {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.answer-item:hover {
+    background-color: #f8f9fa;
+}
+
+.answer-radio {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 50%;
+    margin-right: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.answer-radio::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+.answer-item.selected .answer-radio {
+    border-color: #007bff;
+}
+
+.answer-item.selected .answer-radio::before {
+    background-color: #007bff;
+}
+
+.answer-text {
+    color: #495057;
+    font-size: 0.95rem;
+}
+
+.next-button {
+    background-color: #fff;
+    color: #007bff;
+    border: 1px solid #007bff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    order: 4;
+}
+
+.next-button:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.next-button svg {
+    margin-left: 6px;
+    fill: currentColor;
+}
+
+/* Màu sắc cho các đáp án đúng và sai (áp dụng khi có phản hồi) */
+.answer-item.correct {
+    background-color: #e6ffe9;
+    border-color: #b3e5fc;
+    color: #388e3c;
+}
+
+.answer-item.incorrect {
+    background-color: #ffebee;
+    border-color: #f48fb1;
+    color: #d32f2f;
+}

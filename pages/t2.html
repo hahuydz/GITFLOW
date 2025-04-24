@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nộp bài</title>
+  <link rel="stylesheet" href="../CSS/t2.css"/>
+</head>
+<body>
+
+  <div class="modal">
+    <h2>Nộp bài</h2>
+
+    <div class="form-group">
+      <label for="monhoc">Môn học</label>
+      <input type="text" id="monhoc" placeholder="Nhập tên môn học" value="HTML" />
+    </div>
+
+    <div class="form-group">
+      <label for="baihoc">Bài học</label>
+      <input type="text" id="baihoc" placeholder="Nhập tên bài học" value="HTML Introduction" />
+    </div>
+
+    <div class="form-group">
+      <label for="github">Link Github</label>
+      <input type="text" id="github" placeholder="Đính kèm file" />
+    </div>
+
+    <div class="form-actions">
+      <button class="btn btn-cancel" onclick="closeModal()">Hủy</button>
+      <button class="btn btn-submit" onclick="submitForm()">Nộp bài</button>
+    </div>
+  </div>
+
+  <script>
+    function closeModal() {
+      alert("Modal sẽ được đóng.");
+    }
+
+    function submitForm() {
+      const monhoc = document.getElementById('monhoc').value;
+      const baihoc = document.getElementById('baihoc').value;
+      const githubLink = document.getElementById('github').value;
+
+      if (!monhoc || !baihoc || !githubLink) {
+        alert("Vui lòng điền đầy đủ thông tin.");
+        return;
+      }
+
+      alert("nộp bài thành công");
+      setTimeout(() => {
+    window.location.href = 't1.html'; // thay 'thanks.html' bằng trang bạn muốn chuyển tới
+  }, 1000); // 2000 milliseconds = 2 giây
+    }
+  </script>
+
+</body>
+</html>

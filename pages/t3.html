@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz JS Cơ bản</title>
+  <link rel="stylesheet" href="../CSS/t3.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="https://cdn-media.sforum.vn/storage/app/media/quynh/meme-meo-khoc-7.jpg" alt="Hình ảnh mèo học tập">
+        </div>
+        <h1>[Quiz] JS Cơ bản</h1>
+        <p class="quiz-info">Bài kiểm tra • 6 câu hỏi</p>
+        <p class="description">Omare eu elementum felis porttitor nunc tortor. Omare neque accumsan metus nulla ultricies maecenas rhoncus ultrices cras. Vestibulum varius adipiscing ipsum.</p>
+        <button class="start-button">Bắt đầu làm bài →</button>
+    </div>
+
+    <script>
+        // You can add JavaScript here for interactivity,
+        // for example, to handle the "Start Quiz" button click.
+        const startButton = document.querySelector('.start-button');
+        if (startButton) {
+            startButton.addEventListener('click', () => {
+                alert('Bắt đầu bài kiểm tra!');
+                // In a real application, you would redirect the user
+                // to the quiz questions page here.
+            });
+        }
+    </script>
+</body>
+</html>

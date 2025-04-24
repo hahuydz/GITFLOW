@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  .left-header, .right-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .logo {
+    font-weight: bold;
+    color: #ef6603;
+  }
+  .icon, .nav-item {
+    width: auto;
+    height: auto;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .nav-item:hover, .icon:hover {
+    background-color: #f0f0f0;
+  }
+  .main-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+  aside {
+    width: 300px;
+    background-color: #f8f8f8;
+    border-left: 1px solid #ddd;
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto;
+  }
+  aside h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #ef6603;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ef6603;
+    padding-bottom: 4px;
+  }
+  .session-title {
+    font-weight: bold;
+    margin: 20px 0 10px;
+    font-size: 15px;
+    color: #444;
+    border-left: 4px solid #ef6603;
+    padding-left: 8px;
+  }
+  .lesson {
+    padding: 10px 14px;
+    font-size: 14px;
+    margin: 5px 0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .lesson:hover {
+    background-color: #f0f0f0;
+  }
+  .lesson.active {
+    background-color: #ef6603;
+    color: white;
+    font-weight: bold;
+  }
+  .main-content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+  }
+  .breadcrumb {
+    color: #999;
+    font-size: 14px;
+  }
+  .lesson-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  .section {
+    margin: 30px 0;
+  }
+  .section h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .box {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  .submit-btn {
+    background-color: #ef6603;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  .error-msg {
+    color: red;
+    margin-top: 10px;
+    display: none;
+  }
+  .search-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+  }

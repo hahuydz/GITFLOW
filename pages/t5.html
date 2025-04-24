@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết quả bài kiểm tra</title>
+    <link rel="stylesheet" href="../CSS/t5.css">
+    
+</head>
+<body>
+    <div class="result-container">
+        <div class="congrats-image">
+            <img src="https://i.imgur.com/your_congrats_image_url_here.png" alt="Hình ảnh chúc mừng">
+        </div>
+        <div class="score-circle">
+            <span class="total-score">Tổng điểm</span>
+            <span id="final-score"></span>
+        </div>
+        <h2 class="congrats-message">Chúc mừng bạn đã hoàn thành!</h2>
+        <p class="encouragement-message">Hãy tiếp tục cố gắng và phát huy ở những bài học sau nhé!</p>
+        <div class="button-group">
+            <button class="button retry-button" onclick="retryQuiz()">Làm lại <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417l.3-.276a.5.5 0 0 1 .5-.486l.08.266V3.05a.5.5 0 0 1 .5.49v2c0 .086-.02.168-.049.248-.38.48-.814.868-1.296 1.202l-.071.053a.5.5 0 0 1-.664-.325c-.088-.178-.125-.37-.125-.571 0-.217.03-.424.09-.623a5 5 0 0 0-4.555-2.961z"/>
+                <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.232 2.3 8 3.002v.14a.5.5 0 0 1 .316.632l-1.8 1.5a.5.5 0 0 1-.65-.326L5.232 4.3a.25.25 0 0 0-.19-.041H2.087a.5.5 0 0 1-.5-.49V3a.5.5 0 0 1 .45-.497l2.32-.308a.5.5 0 0 1 .276.072L8 5.466z"/>
+              </svg></button>
+            <button class="button next-lesson-button" onclick="goToNextLesson()">Bài học tiếp theo <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.146-3.147a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5a.5.5 0 0 1-.5-.5z"/>
+              </svg></button>
+        </div>
+    </div>
+
+    <script>
+        // Giả định điểm số cuối cùng (bạn sẽ thay thế bằng điểm số thực tế)
+        const finalScore = 80;
+        const totalQuestions = 100;
+
+        const finalScoreDisplay = document.getElementById('final-score');
+        finalScoreDisplay.textContent = `${finalScore}/${totalQuestions}`;
+
+        // Hàm xử lý khi người dùng nhấn nút "Làm lại"
+        function retryQuiz() {
+            // Chuyển hướng người dùng về trang bắt đầu bài kiểm tra
+            alert('Chức năng làm lại bài kiểm tra sẽ được thêm vào đây.');
+            // window.location.href = 'your_quiz_start_page.html';
+        }
+
+        // Hàm xử lý khi người dùng nhấn nút "Bài học tiếp theo"
+        function goToNextLesson() {
+            // Chuyển hướng người dùng đến bài học tiếp theo
+            alert('Chức năng chuyển đến bài học tiếp theo sẽ được thêm vào đây.');
+            // window.location.href = 'your_next_lesson_page.html';
+        }
+
+        // Bạn có thể thêm logic JavaScript để hiển thị hình ảnh chúc mừng khác nhau
+        // dựa trên điểm số của người dùng.
+        const congratsImage = document.querySelector('.congrats-image img');
+        if (finalScore >= 80) {
+            congratsImage.src = 'https://i.imgur.com/your_high_score_image_url.png'; // Thay thế bằng URL ảnh điểm cao
+        } else {
+            congratsImage.src = 'https://i.imgur.com/your_congrats_image_url_here.png'; // URL ảnh mặc định
+        }
+    </script>
+</body>
+</html>

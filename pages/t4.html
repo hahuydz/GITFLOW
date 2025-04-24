@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câu hỏi trắc nghiệm</title>
+    <link rel="stylesheet" href="../CSS/t4.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="timer"></div> <div class="question-header">
+            <span class="question-number">Câu số 1</span>
+            <p class="question-text">Có thể không sử dụng CSS vẫn layout được hay không? (20 điểm)</p>
+        </div>
+        <div class="options-container">
+            <div class="answer-item" data-value="dung">
+                <label style="display: flex; align-items: center; width: 100%;">
+                    <input type="radio" name="answer" value="dung" class="answer-radio">
+                    <span class="answer-text">Đúng</span>
+                </label>
+            </div>
+            <div class="answer-item incorrect" data-value="sai">
+                <label style="display: flex; align-items: center; width: 100%;">
+                    <input type="radio" name="answer" value="sai" class="answer-radio">
+                    <span class="answer-text">Sai</span>
+                </label>
+            </div>
+            <div class="answer-item selected" data-value="vua_vua">
+                <label style="display: flex; align-items: center; width: 100%;">
+                    <input type="radio" name="answer" value="vua_vua" class="answer-radio" checked>
+                    <span class="answer-text">Vừa vừa</span>
+                </label>
+            </div>
+            <div class="answer-item" data-value="ca_3_dap_an">
+                <label style="display: flex; align-items: center; width: 100%;">
+                    <input type="radio" name="answer" value="ca_3_dap_an" class="answer-radio">
+                    <span class="answer-text">Cả 3 đáp án trên đều đúng</span>
+                </label>
+            </div>
+        </div>
+        <button class="next-button">
+            Câu tiếp theo
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.146-3.147a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+        </button>
+    </div>
+
+    <script>
+        const answerItems = document.querySelectorAll('.answer-item');
+        const answerRadios = document.querySelectorAll('.answer-radio');
+        const timerDisplay = document.querySelector('.timer');
+        let timeLeft = 6 * 60; // 6 phút * 60 giây
+
+        function updateTimer() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            const formattedTime = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            timerDisplay.textContent = `Thời gian còn lại: ${formattedTime}`;
+
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                // Xử lý khi hết thời gian, ví dụ: tự động nộp bài
+                alert('Hết thời gian làm bài!');
+            } else {
+                timeLeft--;
+            }
+        }
+
+        // Cập nhật bộ đếm thời gian mỗi giây
+        const timerInterval = setInterval(updateTimer, 1000);
+
+        answerItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                answerRadios.forEach(radio => {
+                    radio.checked = false;
+                    radio.closest('.answer-item').classList.remove('selected');
+                });
+
+                const radio = item.querySelector('.answer-radio');
+                if (radio) {
+                    radio.checked = true;
+                    item.classList.add('selected');
+                }
+            });
+
+            const label = item.querySelector('label');
+            if (label) {
+                label.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                });
+            }
+        });
+
+        answerRadios.forEach(radio => {
+            if (radio.checked) {
+                radio.closest('.answer-item').classList.add('selected');
+            }
+        });
+    </script>
+</body>
+</html>

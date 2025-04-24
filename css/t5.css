@@ -1,0 +1,117 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.result-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
+    width: 500px;
+    max-width: 95%;
+}
+
+.congrats-image {
+    margin-bottom: 30px;
+}
+
+.congrats-image img {
+    max-width: 200px;
+    height: auto;
+}
+
+.score-circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    background-color: #e9ecef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff8c00; /* Màu cam chủ đạo */
+}
+
+.score-circle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 8px solid #ff8c00;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    transform: rotate(-45deg); /* Điều chỉnh góc để tạo hiệu ứng */
+}
+
+.total-score {
+    font-size: 0.8rem;
+    color: #6c757d;
+    position: absolute;
+    top: 10px;
+}
+
+.congrats-message {
+    font-size: 1.2rem;
+    color: #28a745; /* Màu xanh lá cây cho thành công */
+    margin-bottom: 10px;
+}
+
+.encouragement-message {
+    color: #495057;
+    margin-bottom: 30px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.button {
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.retry-button {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    border-color: #6c757d;
+}
+
+.retry-button:hover {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.next-lesson-button {
+    background-color: #ff8c00; /* Màu cam chủ đạo */
+    color: #fff;
+    border-color: #ff8c00;
+}
+
+.next-lesson-button:hover {
+    background-color: #e67e00;
+    border-color: #e67e00;
+}
+
+.next-lesson-button svg {
+    margin-left: 8px;
+    vertical-align: middle;
+}
