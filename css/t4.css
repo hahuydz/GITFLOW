@@ -133,8 +133,18 @@ body {
     color: #388e3c;
 }
 
-.answer-item.incorrect {
-    background-color: #ffebee;
-    border-color: #f48fb1;
-    color: #d32f2f;
-}
+.answer-item {
+    margin: 8px 0;
+  }
+  
+  .answer-item input[type="radio"] {
+    margin-right: 8px;
+  }
+  
+  /* Khi radio được chọn, làm nền đỏ mờ cho text */
+  .answer-item input[type="radio"]:checked + .answer-text {
+    background-color: rgba(255, 0, 0, 0.2); /* đỏ mờ */
+    padding: 5px 10px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }

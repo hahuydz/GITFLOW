@@ -23,7 +23,24 @@
     <div class="main-content" id="main-content">
       <div class="breadcrumb">Trang chủ / Web Frontend Fundamental</div>
       <div class="lesson-title" id="lesson-title">Các thẻ định nghĩa khu vực nội dung header, footer, section, article, aside, div có thể kết hợp hx và p</div>
-      <div style="color: #999; font-size: 13px;">24 tháng 6 năm 2023</div>
+      <div id="current-date" style="color: #999; font-size: 13px;"></div>
+
+<script>
+  const dateElement = document.getElementById("current-date");
+
+  const today = new Date();
+  const day = today.getDate();
+  const month = today.getMonth() + 1; // tháng bắt đầu từ 0
+  const year = today.getFullYear();
+
+  const months = [
+    "1", "2", "3", "4", "5", "6",
+    "7", "8", "9", "10", "11", "12"
+  ];
+
+  const formattedDate = `${day} tháng ${months[month - 1]} năm ${year}`;
+  dateElement.textContent = formattedDate;
+</script>
       <div class="section">
         <h4>1. Mục tiêu</h4>
         <ul>
@@ -125,6 +142,26 @@
         lesson.style.display = text.includes(input) ? 'block' : 'none';
       });
     }
+    function navigate(page) {
+  if (page === 'profile') {
+    window.location.href = 'login.html'; 
+  }
+}
+function loadLesson(element, lessonName) {
+    
+    if (lessonName.includes('Quiz')) {
+      window.location.href = 't3.html'; 
+      return;
+    }
+
+    // Xử lý giao diện (đánh dấu active)
+    const lessons = document.querySelectorAll('.lesson');
+    lessons.forEach(lesson => lesson.classList.remove('active'));
+    element.classList.add('active');
+
+    // Xử lý nội dung bài học khác (nếu cần)
+    console.log('Mở bài học:', lessonName);
+  }
   </script>
 </body>
 </html>

@@ -8,43 +8,127 @@
 </head>
 <body>
     <div class="quiz-container">
-        <div class="timer"></div> <div class="question-header">
-            <span class="question-number">Câu số 1</span>
-            <p class="question-text">Có thể không sử dụng CSS vẫn layout được hay không? (20 điểm)</p>
+        <div class="timer"></div>
+        <div class="question-header">
+          <span class="question-number">Câu số 1</span>
+          <p class="question-text">Có thể không sử dụng CSS vẫn layout được hay không? (20 điểm)</p>
         </div>
         <div class="options-container">
-            <div class="answer-item" data-value="dung">
-                <label style="display: flex; align-items: center; width: 100%;">
-                    <input type="radio" name="answer" value="dung" class="answer-radio">
-                    <span class="answer-text">Đúng</span>
-                </label>
-            </div>
-            <div class="answer-item incorrect" data-value="sai">
-                <label style="display: flex; align-items: center; width: 100%;">
-                    <input type="radio" name="answer" value="sai" class="answer-radio">
-                    <span class="answer-text">Sai</span>
-                </label>
-            </div>
-            <div class="answer-item selected" data-value="vua_vua">
-                <label style="display: flex; align-items: center; width: 100%;">
-                    <input type="radio" name="answer" value="vua_vua" class="answer-radio" checked>
-                    <span class="answer-text">Vừa vừa</span>
-                </label>
-            </div>
-            <div class="answer-item" data-value="ca_3_dap_an">
-                <label style="display: flex; align-items: center; width: 100%;">
-                    <input type="radio" name="answer" value="ca_3_dap_an" class="answer-radio">
-                    <span class="answer-text">Cả 3 đáp án trên đều đúng</span>
-                </label>
-            </div>
+          <!-- Các đáp án sẽ được thay đổi bằng JS -->
         </div>
         <button class="next-button">
-            Câu tiếp theo
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.146-3.147a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5a.5.5 0 0 1-.5-.5z"/>
-        </svg>
+          Câu tiếp theo
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.146-3.147a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5a.5.5 0 0 1-.5-.5z"/>
+          </svg>
         </button>
-    </div>
+      </div>
+      <script>
+        const questions = [
+          {
+            text: "Có thể không sử dụng CSS vẫn layout được hay không? (20 điểm)",
+            options: [
+              { value: "dung", text: "Đúng" },
+              { value: "sai", text: "Sai" },
+              { value: "vua_vua", text: "Vừa vừa" },
+              { value: "ca_3_dap_an", text: "Cả 3 đáp án trên đều đúng" },
+            ]
+          },
+          {
+            text: "HTML viết tắt của từ gì?",
+            options: [
+              { value: "markup", text: "HyperText Markup Language" },
+              { value: "programming", text: "HyperText Programming Language" },
+              { value: "machine", text: "HighText Machine Language" },
+              { value: "none", text: "Không có đáp án đúng" }
+            ]
+          },
+          {
+            text: "Thẻ nào dùng để tạo danh sách không thứ tự?",
+            options: [
+              { value: "ul", text: "<ul>" },
+              { value: "ol", text: "<ol>" },
+              { value: "li", text: "<li>" },
+              { value: "list", text: "<list>" }
+            ]
+          },
+          {
+            text: "Thuộc tính CSS nào dùng để đổi màu chữ?",
+            options: [
+              { value: "color", text: "color" },
+              { value: "background", text: "background" },
+              { value: "font", text: "font" },
+              { value: "text", text: "text" }
+            ]
+          },
+          {
+            text: "JavaScript là gì?",
+            options: [
+              { value: "script", text: "Ngôn ngữ lập trình phía client" },
+              { value: "style", text: "Ngôn ngữ định dạng" },
+              { value: "markup", text: "Ngôn ngữ đánh dấu" },
+              { value: "none", text: "Không có đáp án đúng" }
+            ]
+          },
+          {
+            text: "Lệnh nào để in ra console trong JavaScript?",
+            options: [
+              { value: "log", text: "console.log()" },
+              { value: "print", text: "console.print()" },
+              { value: "write", text: "document.write()" },
+              { value: "alert", text: "alert()" }
+            ]
+          }
+        ];
+      
+        let currentIndex = 0;
+        let score = 0;
+      
+        function renderQuestion(index) {
+          const q = questions[index];
+          document.querySelector(".question-number").textContent = `Câu số ${index + 1}`;
+          document.querySelector(".question-text").textContent = q.text;
+      
+          const optionsHTML = q.options.map(opt => `
+            <div class="answer-item" data-value="${opt.value}">
+              <label style="display: flex; align-items: center; width: 100%;">
+                <input type="radio" name="answer" value="${opt.value}" class="answer-radio">
+                <span class="answer-text">${opt.text}</span>
+              </label>
+            </div>
+          `).join("");
+          document.querySelector(".options-container").innerHTML = optionsHTML;
+        }
+        // Lưu điểm khi người dùng chọn đáp án
+  function checkAnswer() {
+    const selectedAnswer = document.querySelector(`input[name="answer-${currentIndex}"]:checked`);
+    if (selectedAnswer) {
+      const answerValue = selectedAnswer.value;
+      const correctAnswer = questions[currentIndex].options.find(option => option.correct);
+      
+      if (answerValue === correctAnswer.value) {
+        score++;
+      }
+    }
+  }
+      
+        document.querySelector(".next-button").addEventListener("click", () => {
+          currentIndex++;
+          if (currentIndex < questions.length) {
+            renderQuestion(currentIndex);
+          } else {
+            alert("Bạn đã hoàn thành tất cả các câu hỏi!");
+           
+            window.location.href = `t5.html?score=${score}&total=${questions.length}` ;
+           
+          }
+        });
+       
+        // Load câu hỏi đầu tiên khi trang sẵn sàng
+        document.addEventListener("DOMContentLoaded", () => {
+          renderQuestion(currentIndex);
+        });
+      </script>
 
     <script>
         const answerItems = document.querySelectorAll('.answer-item');

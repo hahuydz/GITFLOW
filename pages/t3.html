@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div class="image-container">
-            <img src="https://cdn-media.sforum.vn/storage/app/media/quynh/meme-meo-khoc-7.jpg" alt="Hình ảnh mèo học tập">
+            <img src="../assets/ảnh nền.png" alt="Hình ảnh mèo học tập">
         </div>
         <h1>[Quiz] JS Cơ bản</h1>
         <p class="quiz-info">Bài kiểm tra • 6 câu hỏi</p>
@@ -18,14 +18,12 @@
     </div>
 
     <script>
-        // You can add JavaScript here for interactivity,
-        // for example, to handle the "Start Quiz" button click.
+      
         const startButton = document.querySelector('.start-button');
         if (startButton) {
             startButton.addEventListener('click', () => {
-                alert('Bắt đầu bài kiểm tra!');
-                // In a real application, you would redirect the user
-                // to the quiz questions page here.
+                window.location.href = 't4.html'; 
+          
             });
         }
     </script>

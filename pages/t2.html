@@ -35,6 +35,9 @@
   <script>
     function closeModal() {
       alert("Modal sẽ được đóng.");
+      setTimeout(() => {
+    window.location.href = 't1.html'; 
+  }, 500); 
     }
 
     function submitForm() {
@@ -49,8 +52,8 @@
 
       alert("nộp bài thành công");
       setTimeout(() => {
-    window.location.href = 't1.html'; // thay 'thanks.html' bằng trang bạn muốn chuyển tới
-  }, 1000); // 2000 milliseconds = 2 giây
+    window.location.href = 't1.html'; 
+  }, 1000); 
     }
   </script>
 
